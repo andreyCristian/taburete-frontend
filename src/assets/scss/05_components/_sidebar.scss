@@ -1,0 +1,35 @@
+$text-icon-menu: rgb(66, 66, 66);
+$bg-color-menu: rgb(247, 247, 247);
+$border-color-menu: rgb(219, 219, 219);
+$text-icon-menu-hover: rgb(121, 121, 121);
+
+.sidebar-menu {
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    background: $bg-color-menu;
+    border-right: 1px solid $border-color-menu;
+    &__header {
+        height: 50px;
+        background-color: $text-icon-menu;
+    }
+    &__body {
+        .option-list--item {
+            > a {
+                display: flex;
+                padding: 12px;
+                align-content: center;
+                color: $text-icon-menu;
+                justify-content: center;
+                transition: .2 all ease-in;
+                border-bottom: 1px solid $border-color-menu;
+                &:hover,
+                &:focus {
+                    color: $text-icon-menu-hover;
+                }
+            }
+        }
+    }
+}
