@@ -1,0 +1,245 @@
+$title-table-text: rgb(14, 14, 14);
+$title-text: rgb(14, 14, 14);
+
+.report-table {
+  padding: 0px 30px;
+  &__filter-columns {
+    text-align: left;
+    .mui-checkbox-containter {
+      display: inline-flex;
+    }
+  }
+  .title-table {
+    font-size: 24px;
+    color: $title-table-text;
+    font-weight: 600;
+  }
+  &__container {
+    position: relative;
+    width: 100%;
+    .row {
+      text-align: right;
+      margin-bottom: 10px;
+      .col-md-12 {
+        display: flex;
+        justify-content: flex-end;
+        .title-table {
+          position: absolute;
+          order: -1;
+          left: 0;
+          padding-left: 12px;
+        }
+        .VueTables__limit {
+          position: absolute;
+          bottom: 28px;
+          left: 245px;
+          .limit-messages-nonDisplay ~ .VueTables__limit-field {
+            display: none;
+          }
+          select{
+            border-color: #010C4226;
+            padding: 5px 3px;
+            margin-left: 3px;
+          }
+        }
+        .VueTables__search {
+          display: flex;
+          .VueTables__search-field {
+            width: 176px;
+            height: 34px;
+            input {
+              width: 100%;
+              height: 100%;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+            }
+          }
+          .button {
+            height: 34px;
+            margin-left: 5px;
+            &:hover,
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .report-table__export {
+          display: flex;
+          order: 3;
+          &__line {
+            height: 34px;
+            width: 1px;
+            border-left: 1px solid #b1b4c5;
+            margin: 0px 10px;
+          }
+          &__button {
+            width: 74px;
+            height: 34px;
+            color: rgb(51, 51, 51);
+            background-color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+        .VueTables__columns-dropdown-wrapper {
+          .VueTables__columns-dropdown {
+            button {
+              height: 34px;
+              width: 37px;
+              font-size: large;
+              font-weight: 400;
+              background-color: white;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            .dropdown-menu  {
+              min-width: 160px;
+              padding: 5px 0;
+              margin: 2px 0 0;
+              border-radius: 4px;
+              font-size: 14px;
+              background-color: white;
+              box-shadow: 0 6px 12px rgba(0,0,0,.175);;
+              li {
+                display: flex;
+                a {
+                  display: flex;
+                  align-items: center;
+                  color: black;
+                  max-width: 100%;
+                  margin-bottom: 5px;
+                  padding: 3px 20px;
+                  text-align: left;
+                  font-size: 14px;
+                  input {
+                    margin-right: 5px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .table-responsive {
+      overflow: visible !important;
+      border: 1px solid #ddd;
+      .VueTables__table {
+        width: 100%;
+        font-size: 14px;
+        overflow: visible !important;
+        thead {
+          tr {
+            th {
+              .VueTables__heading {
+                color: $title-text;
+              }
+            }
+          }
+        }
+        tbody {
+          .VueTables__no-results {
+            text-align: center;
+          }
+          .VueTables__row {
+            td {
+              height: 59px;
+              border-bottom: 0;
+              vertical-align: middle;
+              &, &:focus {
+                outline: none !important;
+              }
+              .report-table__action {
+                .dropdown {
+                  .dropdown-menu {
+                    min-width: 100px;
+                  }
+                  .dropdown-trigger button {
+                    margin: 0 auto;
+                    cursor: pointer;
+                    transition: .2s all ease-in-out;
+                    &:hover {
+                      background-color: #e6e6e6;
+                    }
+                  }
+                }
+              }
+            }
+            .td-state {
+              display: flex;
+              margin: -1px;
+              height: 58px;
+              justify-content: center;
+              align-items: center;
+            }
+            .text-right {
+              text-align: right;
+            }
+            .text-center {
+              text-align: center;
+            }
+            .icon-center {
+              display: flex;
+              align-items: center;
+            }
+          }
+          .VueTables__row:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+    .VuePagination {
+      margin-top: 10px;
+      .text-center {
+        height: 44px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul {
+          width: max-content;
+          margin: 5px 0;
+          order: 2;
+          border-radius: 4px;
+          li {
+            width: 30px;
+            height: 34px;
+            
+            a {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              line-height: 1.428571429;
+              align-items: center;
+              justify-content: center;
+              color: #576573;
+            }
+            >li:first-child>a {
+              border-top-left-radius: 4px;
+              border-bottom-left-radius: 4px;
+            }
+            >li:last-child>a {
+              border-top-right-radius: 4px;
+              border-bottom-right-radius: 4px;
+            }
+          }
+          li a:hover{
+            color: #010C42;
+          }
+          li .active {
+            color: #010C42;
+          }
+        }
+        .VuePagination__pagination-item-prev-page, .VuePagination__pagination-item-next-page{
+          a{
+            color: #BEBEBE;
+          }
+        }
+      }
+    }
+  }
+}

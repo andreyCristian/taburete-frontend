@@ -6,7 +6,7 @@
       <ul class="sidebar-menu__body--option-list">
         <li class="option-list--item">
           <router-link
-            to="product"
+            :to="{ name: 'product' }"
             v-tooltip.right-center="'Productos'"
             class="has-text-centered is-size-3 px-0"
           >
@@ -15,7 +15,7 @@
         </li>
         <li class="option-list--item">
           <router-link
-            to="provider"
+            :to="{ name: 'provider' }"
             v-tooltip.right-center="'Proveedores'"
             class="has-text-centered is-size-3 px-0"
           >
@@ -24,7 +24,7 @@
         </li>
         <li class="option-list--item">
           <router-link
-            to="configuration"
+            :to="{ name: 'configuration' }"
             v-tooltip.right-center="'Configuración'"
             class="has-text-centered is-size-3 px-0"
           >

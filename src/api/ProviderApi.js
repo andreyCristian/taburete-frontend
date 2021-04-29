@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export default class ProductApi {
+export default class ProviderApi {
   constructor() {
-    this.endpoint = 'http://localhost:3000/products';
+    this.endpoint = 'http://localhost:3000/providers';
   }
 
   getAll() {
@@ -14,12 +14,10 @@ export default class ProductApi {
   }
 
   post(payload) {
-    console.log('create.. ', payload);
     return axios.post(this.endpoint, payload);
   }
 
   put(id, payload) {
-    console.log('edit.. ', id, payload);
     return axios.put(`${this.endpoint}/${id}`, payload);
   }
 }

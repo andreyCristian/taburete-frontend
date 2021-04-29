@@ -1,5 +1,7 @@
 <template>
-  <table-detailed />
+  <div class="product-list__view">
+    <table-detailed />
+  </div>
 </template>
 
 <script>
@@ -17,7 +19,7 @@ export default {
       updateProducts: types.actions.UPDATE_PRODUCTS,
     }),
   },
-  mounted() {
+  created() {
     this.updateProducts();
   },
 };

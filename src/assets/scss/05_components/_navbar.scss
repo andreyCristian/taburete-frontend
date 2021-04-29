@@ -1,10 +1,10 @@
 $border-color-menu: rgb(219, 219, 219);
 
 .header-menu {
-    top: 0;
-    right: 0;
-    height: 50px;
-    position: absolute;
-    width: calc(100% - 60px);
-    border-bottom: 1px solid $border-color-menu;
+  top: 0;
+  right: 0;
+  height: 50px;
+  position: fixed;
+  width: calc(100% - 60px);
+  border-bottom: 1px solid $border-color-menu;
 }

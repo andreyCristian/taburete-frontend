@@ -2,23 +2,21 @@
   <div class="report-table columns is-multiline pt-5">
     <v-client-table
       class="column report-table__container"
-      :data="products"
+      :data="providers"
       :columns="[
         'action',
-        'tipo',
         'nombre',
-        'unidad',
-        'cantidad',
-        'precio_venta',
+        'ciudad',
+        'telefono',
+        'direccion',
       ]"
       :options="{
         headings: {
           action: 'Acciones',
-          tipo: 'Tipo',
           nombre: 'Nombre',
-          unidad: 'Unid',
-          cantidad: 'Cant',
-          precio_venta: 'Precio',
+          ciudad: 'Ciudad',
+          telefono: 'Teléfono',
+          direccion: 'Dirección',
         },
         texts: {
           limit: '',
@@ -31,13 +29,19 @@
         }
       }"
     >
+      <div class="report-table__list-data" slot="telefono" slot-scope="{ row }">
+        <span v-for="(item, idx) in getPhones(row.telefono)" :key="idx">{{ item }}</span>
+      </div>
+      <div class="report-table__list-data" slot="direccion" slot-scope="{ row }">
+        <span v-for="(item, idx) in getAddresses(row.direccion)" :key="idx">{{ item }}</span>
+      </div>
       <template slot="afterFilterWrapper">
-        <span class="title-table">Productos</span>
+        <span class="title-table">Proveedores</span>
       </template>
       <template slot="afterFilter">
         <router-link
           class="button is-success"
-          :to="{ name: 'edit-product', params: { id: '' } }"
+          :to="{ name: 'edit-provider', params: { id: '' } }"
         >
           Crear
         </router-link>
@@ -60,7 +64,7 @@
             <div class="dropdown-content">
               <router-link
                 class="dropdown-item"
-                :to="{ name: 'edit-product', params: { id: row.id } }"
+                :to="{ name: 'edit-provider', params: { id: row.id } }"
               >
                 <i class="fas fa-truck-loading" />
                 Editar
@@ -75,14 +79,38 @@
 
 <script>
 import { mapState } from 'vuex';
-import { typesProducts as types } from '@/store/modules/products/types';
+import { typesProviders as types } from '@/store/modules/providers/types';
 
 export default {
   name: 'tableDetailed',
   computed: {
-    ...mapState(types.PATH, ['products']),
+    ...mapState(types.PATH, ['providers']),
   },
   methods: {
+    getPhones(phones) {
+      if (phones) {
+        try {
+          const data = JSON.parse(phones);
+          return data.length ? data : ['-'];
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      return ['-'];
+    },
+    getAddresses(addresses) {
+      if (addresses) {
+        try {
+          const data = JSON.parse(addresses);
+          return data.length ? data : ['-'];
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      return ['-'];
+    },
     toggleDropdown(rowId, showMenu) {
       const el = document.getElementById(`dropdown-menu-${rowId}`).parentElement;
       if (!showMenu) el.classList.remove('is-active');

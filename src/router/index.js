@@ -6,16 +6,26 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/product',
-    name: 'Productos',
+    name: 'product',
     component: () => import('@/views/ProductList.vue'),
   },
   {
+    path: '/product/edit/:id',
+    name: 'edit-product',
+    component: () => import('@/views/ProductEdit.vue'),
+  },
+  {
     path: '/provider',
-    name: 'Proveedores',
+    name: 'provider',
     component: () => import('@/views/Provider.vue'),
   },
   {
-    name: 'Configuración',
+    path: '/provider/edit/:id',
+    name: 'edit-provider',
+    component: () => import('@/views/ProviderEdit.vue'),
+  },
+  {
+    name: 'configuration',
     path: '/configuration',
     component: () => import('@/views/Configuration.vue'),
   },
